@@ -12,7 +12,7 @@ def getFunctions():
     lambda_client = boto3.client('lambda')
     functions= []
     paginator = lambda_client.get_paginator('list_functions')
-    for page in paginator.paginate(PaginationConfig={'MaxItems': 100}):
+    for page in paginator.paginate(PaginationConfig={'MaxItems': 1000}):
         for function in page['Functions']:
             functions.append(function)
     return functions
